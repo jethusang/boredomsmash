@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Boredom Smash Library: Free access to a wide range of books in various categories including Computer Science, Economics, History, and more.">
+  <meta name="keywords"
+    content="free books, download books, library, academic books, computer science, economics, history, philosophy">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Boredom Smash Library">
+  <meta property="og:description" content="Download your favorite books for free from the Boredom Smash Library.">
+  <meta property="og:image" content="path-to-your-image.jpg">
+  <meta property="og:url" content="https://example.com">
+
+  <title>Boredom Smash Library - Free Books for Everyone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/books.css">
+  <link rel="stylesheet" href="/CSS/skeleton.css">
+  <link rel="stylesheet" href="/CSS/responsive.css">
+  <link rel="shortcut icon" href="/assets/books-study-svgrepo-com.svg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.24.0/tabler-icons.min.css"
+    integrity="sha512-DPG2HbXmHL0nwJ6erX5ppS2ot0LvCvsVEUDLaBa429nLcb6R+XZ2O4fqXyMG/pGIwJK8GjzKIxfCHLropPNaiw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-content ul li {
+      padding: 8px;
+    }
+
+    .dropdown-content ul li a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .dropdown-content ul li a:hover {
+      background-color: #ddd;
+    }
+
+    .sub_category_icon .ti {
+      margin-left: 8px;
+      height: 50px;
+      width: 50px;
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .main-item {
+      padding: 20px;
+      border: 2px solid #2f27ce;
+      border-radius: 5px;
+    }
+
+    .mobile-category-main {
+      padding: 10px;
+    }
+
+    .heading {
+      font-size: clamp(50px, 8vw, 100px);
+    }
+
+    @media only screen and (max-width: 600px) {
+      .ellipsis {
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 2px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="logo mai-logo">
+      <a href=""><img src="/assets/books-study-svgrepo-com.svg" alt="logo" class="logo" /></a>
+    </div>
+    <div class="ul-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="/html/books-search.html">Search</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="/html/books-search.html">Search</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="main-intro">
+      <h1 class="heading">Boredom <span>Smash Library</span></h1>
+      <p class="main-inf">
+        Feel free to Search, Access and Download books for free. No sign-ups,
+        no logins—just pure, hassle-free access to the stories and knowledge
+        you crave. Search, explore, and download your favorites, all for free.
+        It’s as easy as peasy
+      </p>
+      <br /><br />
+
+      <span class="btns">
+        <button class="btn" aria-label="Go to Recent Uploads">Recent Uploads</button>
+        <button class="btn">Filter</button>
+      </span>
+    </div>
+    <img src="assets/Studying-amico.svg" alt="A person studying at a desk surrounded by books" class="main-img" />
+  </div>
+
+  <div id="books">
+    <main class="main-content">
+      <h1 class="anton-sc-regular category-heading">
+        Books Categories
+        <img id="category_icon" src="/assets/books-study-svgrepo-com.svg" alt="book svg icon" />
+      </h1>
+      <div class="how" id="how?">
+        <div class="mobile-category-main" id="books-category-mobile">
+          <a class="category-item main-item" href="#" onclick="toggleDropdown(event)">
+            Search with Categories
+            <i class="ti ti-square-chevron-down sub_category_icon"></i>
+          </a>
+          <div class="dropdown-content">
+            <ul>
+              <li>
+                <a class="category-item" href="#">Computer Science
+                  <img class="sub_category_icon" src="assets/computer-and-earth-spheres-svgrepo-com.svg"
+                    alt="computer science icon" />
+                </a>
+              </li>
+              <hr>
+
+              <li>
+                <a class="category-item" href="#">Science and Mathematics
+                  <img class="sub_category_icon" src="assets/science-and-mathematics-svgrepo-com.svg"
+                    alt="science icon" />
+                </a>
+              </li>
+              <hr>
+              <li>
+                <a class="category-item" href="#">Economics And Finance
+                  <img class="sub_category_icon" src="assets/economics-and-finance-svgrepo-com.svg"
+                    alt="economics icon" />
+                </a>
+              </li>
+              <hr>
+              <li>
+                <a class="category-item" href="#">Business and Management
+                  <img class="sub_category_icon" src="assets/business-and-management-svgrepo-com.svg"
+                    alt="business icon" />
+                </a>
+              </li>
+              <hr>
+              <li>
+                <a class="category-item" href="#">History
+                  <img class="sub_category_icon" src="assets/history-svgrepo-com.svg" alt="history icon" />
+                </a>
+              </li>
+              <hr>
+              <li>
+                <a class="category-item" href="#">Philosophy
+                  <img class="sub_category_icon" src="assets/philosophy-svgrepo-com.svg" alt="philosophy icon" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="category-main" id="books-category">
+          <ul>
+            <li>
+              <a class="category-item" href="#">Computer Science
+                <img class="sub_category_icon" src="assets/computer-and-earth-spheres-svgrepo-com.svg"
+                  alt="computer science" />
+              </a>
+            </li>
+            <li>
+              <a class="category-item" href="#">Science and Mathematics
+                <img class="sub_category_icon" src="assets/science-and-mathematics-svgrepo-com.svg" alt="science" />
+              </a>
+            </li>
+            <li>
+              <a class="category-item" href="#">Economics And Finance
+                <img class="sub_category_icon" src="assets/economics-and-finance-svgrepo-com.svg" alt="economics" />
+              </a>
+            </li>
+            <li>
+              <a class="category-item" href="#">Business and Management
+                <img class="sub_category_icon" src="assets/business-and-management-svgrepo-com.svg" alt="business" />
+              </a>
+            </li>
+            <li>
+              <a class="category-item" href="#">History
+                <img class="sub_category_icon" src="assets/history-svgrepo-com.svg" alt="history" />
+              </a>
+            </li>
+            <li>
+              <a class="category-item" href="#">Philosophy
+                <img class="sub_category_icon" src="assets/philosophy-svgrepo-com.svg" alt="philosophy" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="books" id="books-main">
+        </div>
+        <div class="main-book-content"></div>
+
+        <div class="pagination">
+
+          <div id="page-controls">
+            <input id="prev-button" type="image" class="img_button" src="/assets/previous-back-svgrepo-com (1).svg"
+              alt="" />
+            <input class="pagination-input" type="number" name="page-number" id="page-number" placeholder="1" />
+            <input id="next-button" type="image" class="img_button" src="/assets/next-next-svgrepo-com.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+<footer>
+  <div class="footer-inf">
+    <p>
+      <img class="author-img" src="/assets/author-JE.png" alt="author-logo" />
+      developed by &copy; &lt;J / E &gt; 2024
+    </p>
+  </div>
+</footer>
+<script src="/JS/content-return.js"></script>
+<script>
+  function toggleMenu() {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    mobileMenu.classList.toggle("show");
+  }
+</script>
+
+<script>
+  function toggleDropdown(event) {
+    event.preventDefault();
+    var dropdownContent = event.target.nextElementSibling;
+    dropdownContent.style.display =
+      dropdownContent.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Boredom Smash Library",
+    "url": "https://boredomsmash.com",
+    "description": "Free access to a wide range of books for download."
+  }
+  </script>
+
+
+</html>
