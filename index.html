@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/CSS/books.css">
+  <link rel="stylesheet" href="/CSS/index.css">
   <link rel="stylesheet" href="/CSS/skeleton.css">
   <link rel="stylesheet" href="/CSS/responsive.css">
   <link rel="shortcut icon" href="/assets/books-study-svgrepo-com.svg" type="image/x-icon">
@@ -135,11 +136,29 @@
 
       <span class="btns">
         <button class="btn" aria-label="Go to Recent Uploads">Recent Uploads</button>
-        <button class="btn">Filter</button>
+        <button class="btn"><a href="/html/books-search.html">Filter</a></li></button>
       </span>
     </div>
     <img src="assets/Studying-amico.svg" alt="A person studying at a desk surrounded by books" class="main-img" />
   </div>
+
+
+  <div id="about">
+    <br><br>
+      <h1 class="anton-sc-regular category-heading" style="text-align: center;">
+        About Boredom Smash Library
+      </h1>
+      <div class="about-content" style="text-align: center;  margin: auto;">
+        <p class="main-inf">
+          Welcome to Boredom Smash Library, your go-to destination for free access to a vast collection of books. Our
+          mission is to provide hassle-free access to knowledge and stories without the need for sign-ups or logins.
+          Whether you're looking for the latest bestsellers, classic literature, or academic resources, we've got you
+          covered.
+        </p>
+        <br><br>
+      </div>
+  </div>
+
 
   <div id="books">
     <main class="main-content">
@@ -156,7 +175,7 @@
           <div class="dropdown-content">
             <ul>
               <li>
-                <a class="category-item" href="#">Computer Science
+                <a class="category-item category-link" data-category="computer+science" href="#">Computer Science
                   <img class="sub_category_icon" src="assets/computer-and-earth-spheres-svgrepo-com.svg"
                     alt="computer science icon" />
                 </a>
@@ -164,34 +183,34 @@
               <hr>
 
               <li>
-                <a class="category-item" href="#">Science and Mathematics
+                <a class="category-item category-link" data-category="science+and+mathemetics" href="#">Science and Mathematics
                   <img class="sub_category_icon" src="assets/science-and-mathematics-svgrepo-com.svg"
                     alt="science icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#">Economics And Finance
+                <a class="category-item category-link" data-category="economics+and+science" href="#">Economics And Finance
                   <img class="sub_category_icon" src="assets/economics-and-finance-svgrepo-com.svg"
                     alt="economics icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#">Business and Management
+                <a class="category-item category-link" data-category="business+and+management" href="#">Business and Management
                   <img class="sub_category_icon" src="assets/business-and-management-svgrepo-com.svg"
                     alt="business icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#">History
+                <a class="category-item category-link" data-category="history" href="#">History
                   <img class="sub_category_icon" src="assets/history-svgrepo-com.svg" alt="history icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#">Philosophy
+                <a class="category-item category-link" data-category="philosophy" href="#">Philosophy
                   <img class="sub_category_icon" src="assets/philosophy-svgrepo-com.svg" alt="philosophy icon" />
                 </a>
               </li>
@@ -202,33 +221,33 @@
         <div class="category-main" id="books-category">
           <ul>
             <li>
-              <a class="category-item" href="#">Computer Science
+              <a class="category-item category-link" data-category="computer+science" href="#">Computer Science
                 <img class="sub_category_icon" src="assets/computer-and-earth-spheres-svgrepo-com.svg"
                   alt="computer science" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#">Science and Mathematics
+              <a class="category-item category-link" data-category="science+and+methematics" href="#">Science and Mathematics
                 <img class="sub_category_icon" src="assets/science-and-mathematics-svgrepo-com.svg" alt="science" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#">Economics And Finance
+              <a class="category-item category-link" data-category="economics+and+finance" href="#">Economics And Finance
                 <img class="sub_category_icon" src="assets/economics-and-finance-svgrepo-com.svg" alt="economics" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#">Business and Management
+              <a class="category-item category-link" data-category="business+and+management" href="#">Business and Management
                 <img class="sub_category_icon" src="assets/business-and-management-svgrepo-com.svg" alt="business" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#">History
+              <a class="category-item category-link" data-category="history" href="#">History
                 <img class="sub_category_icon" src="assets/history-svgrepo-com.svg" alt="history" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#">Philosophy
+              <a class="category-item category-link" data-category="philosophy" href="#">Philosophy
                 <img class="sub_category_icon" src="assets/philosophy-svgrepo-com.svg" alt="philosophy" />
               </a>
             </li>
@@ -282,7 +301,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Boredom Smash Library",
-    "url": "https://boredomsmash.com",
+    "url": "https://boredomsmash.netlify.app",
     "description": "Free access to a wide range of books for download."
   }
   </script>

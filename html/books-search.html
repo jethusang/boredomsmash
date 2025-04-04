@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/search.css">
   <link rel="stylesheet" href="/CSS/books.css">
   <link rel="stylesheet" href="/CSS/skeleton.css">
   <link rel="stylesheet" href="/CSS/responsive.css">
@@ -33,116 +34,6 @@
     integrity="sha512-DPG2HbXmHL0nwJ6erX5ppS2ot0LvCvsVEUDLaBa429nLcb6R+XZ2O4fqXyMG/pGIwJK8GjzKIxfCHLropPNaiw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <style>
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 200px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
-
-
-    .dropdown-content ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .dropdown-content ul li {
-      padding: 8px;
-    }
-
-    .dropdown-content ul li a {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-
-    .dropdown-content ul li a:hover {
-      background-color: #ddd;
-    }
-
-    .sub_category_icon {
-      margin-left: 10px;
-    }
-
-
-    .category-item {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 5px;
-    }
-
-    .main-item {
-      padding: 20px;
-      border: 2px solid #2f27ce;
-      border-radius: 5px;
-    }
-
-    .mobile-category-main {
-      padding: 10px;
-    }
-
-    .heading {
-      font-size: clamp(50px, 8vw, 100px);
-    }
-  </style>
-  <style>
-    .search {
-      width: 100%;
-      height: 40px;
-      position: relative;
-      display: flex;
-    }
-
-    .searchTerm {
-      width: 100%;
-      height: 100%;
-      border: 3px solid #2f27ce;
-      border-right: none;
-      padding: 5px;
-      border-radius: 5px 0 0 5px;
-      font-size: medium;
-    }
-
-    .searchTerm:focus {
-      color: #2f27ce;
-      border-color: green;
-    }
-
-    .searchButton {
-      width: 40px;
-      height: 40px;
-      border: 3px solid #2f27ce;
-      background: #2f27ce;
-      text-align: center;
-      color: #fff;
-      border-radius: 0 5px 5px 0;
-      cursor: pointer;
-      font-size: 20px;
-    }
-
-    .wrap {
-      width: 30%;
-      margin: 20px auto;
-    }
-
-    @media only screen and (max-width: 600px) {
-      .wrap {
-        width: 95%;
-      }
-    }
-  </style>
-  <style>
-    .search-before-render {
-      width: 700px;
-      margin: 50px auto;
-    }
-  </style>
 </head>
 
 <body>
@@ -155,7 +46,7 @@
         <li><a href="/index.html">Home</a></li>
         <li><a href="#books">Books</a></li>
         <li><a href="#links">Search</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="/index.html#about">About</a></li>
       </ul>
     </div>
     <div class="hamburger" onclick="toggleMenu()">
@@ -169,14 +60,12 @@
       <li><a href="/index.html">Home</a></li>
       <li><a href="#books">Books</a></li>
       <li><a href="#links">Search</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="/index.html#about">About</a></li>
     </ul>
   </div>
 
   <div id="books">
     <main class="main-content">
-
-
       <div class="wrap">
         <div class="">
           <form action="" class="search">
@@ -197,7 +86,7 @@
           <div class="dropdown-content">
             <ul>
               <li>
-                <a class="category-item" href="#" id="mob-cat-computer-science">Computer Science
+                <a class="category-item" href="#" data-category="compueter+science" id="mob-cat-computer-science">Computer Science
                   <img class="sub_category_icon" src="/assets/computer-and-earth-spheres-svgrepo-com.svg"
                     alt="computer science icon" />
                 </a>
@@ -205,34 +94,34 @@
               <hr>
 
               <li>
-                <a class="category-item" href="#" id="mob-cat-science-and-mathematics">Science and Mathematics
+                <a class="category-item" href="#"  data-category="science+and+mathemetics" id="mob-cat-science-and-mathematics">Science and Mathematics
                   <img class="sub_category_icon" src="/assets/science-and-mathematics-svgrepo-com.svg"
                     alt="science icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#" id="mob-cat-economics-and-finance">Economics And Finance
+                <a class="category-item" href="#" data-category="economics+and+finance" id="mob-cat-economics-and-finance">Economics And Finance
                   <img class="sub_category_icon" src="/assets/economics-and-finance-svgrepo-com.svg"
                     alt="economics icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#" id="mob-cat-business-and-management">Business and Management
+                <a class="category-item" href="#" data-category="business+and+management" id="mob-cat-business-and-management">Business and Management
                   <img class="sub_category_icon" src="/assets/business-and-management-svgrepo-com.svg"
                     alt="business icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#" id="mob-cat-History">History
+                <a class="category-item" href="#" data-category="history" id="mob-cat-History">History
                   <img class="sub_category_icon" src="/assets/history-svgrepo-com.svg" alt="history icon" />
                 </a>
               </li>
               <hr>
               <li>
-                <a class="category-item" href="#" id="mob-cat-philosophy">Philosophy
+                <a class="category-item" href="#" data-category="philosophy" id="mob-cat-philosophy">Philosophy
                   <img class="sub_category_icon" src="/assets/philosophy-svgrepo-com.svg" alt="philosophy icon" />
                 </a>
               </li>
@@ -243,33 +132,33 @@
         <div class="category-main" id="books-category">
           <ul>
             <li>
-              <a class="category-item" href="#" id="des-cat-computer-sciences">Computer Science
+              <a class="category-item" href="#" data-category="compueter+science" id="des-cat-computer-sciences">Computer Science
                 <img class="sub_category_icon" src="/assets/computer-and-earth-spheres-svgrepo-com.svg"
                   alt="computer science" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#" id="des-cat-science-and-mathematics">Science and Mathematics
+              <a class="category-item" href="#" data-category="science+amd+mathemetics" id="des-cat-science-and-mathematics">Science and Mathematics
                 <img class="sub_category_icon" src="/assets/science-and-mathematics-svgrepo-com.svg" alt="science" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#" id="des-cat-economics-and-finance">Economics And Finance
+              <a class="category-item" href="#" data-category="economics+and+finance" id="des-cat-economics-and-finance">Economics And Finance
                 <img class="sub_category_icon" src="/assets/economics-and-finance-svgrepo-com.svg" alt="economics" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#" id="des-cat-business-and-management">Business and Management
+              <a class="category-item" href="#" data-category="business+management" id="des-cat-business-and-management">Business and Management
                 <img class="sub_category_icon" src="/assets/business-and-management-svgrepo-com.svg" alt="business" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#" id="des-cat-history">History
+              <a class="category-item" href="#" data-category="history" id="des-cat-history">History
                 <img class="sub_category_icon" src="/assets/history-svgrepo-com.svg" alt="history" />
               </a>
             </li>
             <li>
-              <a class="category-item" href="#" id="des-cat-philosophy">Philosophy
+              <a class="category-item" href="#" data-category="philosophy" id="des-cat-philosophy">Philosophy
                 <img class="sub_category_icon" src="/assets/philosophy-svgrepo-com.svg" alt="philosophy" />
               </a>
             </li>
@@ -277,13 +166,7 @@
         </div>
 
         <div class="books" id="books-main">
-          <div class="search-before-render">
-            <div id="text-search">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde porro odit itaque distinctio quasi enim
-                molestias quam. Dicta vero error cum, ut nam cumque cupiditate illo obcaecati unde voluptatem officia!
-              </p>
-            </div>
-          </div>
+   
         </div>
         <div class="main-book-content"></div>
 
@@ -308,7 +191,7 @@
     </p>
   </div>
 </footer>
-<script src="/JS/search.js"></script>
+<script src="/JS/content-return.js"></script>
 <script>
   function toggleMenu() {
     const mobileMenu = document.querySelector(".mobile-menu");
@@ -324,13 +207,12 @@
       dropdownContent.style.display === "block" ? "none" : "block";
   }
 </script>
-
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Boredom Smash Library",
-    "url": "https://boredomsmash.com",
+    "url": "https://boredomsmash.netlify.app",
     "description": "Free access to a wide range of books for download."
   }
   </script>

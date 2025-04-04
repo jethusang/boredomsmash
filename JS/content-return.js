@@ -1,15 +1,15 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    const url = "https://www.dbooks.org/api/search/recent";
-    let currentPage = 1;
-    const itemsPerPage = 12;
-    let totalPages = 0;
-    let data = [];
-
     const booksMain = document.getElementById("books-main");
     const prevButton = document.querySelector("#prev-button");
     const nextButton = document.querySelector("#next-button");
     const pageNumber = document.querySelector("#page-number");
+    const searchForm = document.querySelector('.search');
+    const searchInput = document.getElementById('search-key');
+    let currentPage = 1;
+    const itemsPerPage = 12;
+    let totalPages = 0;
+    let data = [];
 
     function showSkeletonLoader() {
         booksMain.innerHTML = ""; 
@@ -32,25 +32,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-  
     function hideSkeletonLoader() {
         setTimeout(() => {
             displayPage(currentPage); 
         }, 2000);  
     }
 
-    fetch(url)
-        .then(response => response.json())
-        .then(fetchedData => {
-            data = fetchedData.books;
-            totalPages = Math.ceil(data.length / itemsPerPage);
-            showSkeletonLoader();
-            hideSkeletonLoader();
-        })
-        .catch(error => {
-            console.error("Error fetching data:", error);
-            booksMain.innerHTML = "<p>Sorry, we couldn't fetch any books at the moment. Please try again later.</p>";
-        });
+    function fetchBooks(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(fetchedData => {
+                data = fetchedData.books;
+                totalPages = Math.ceil(data.length / itemsPerPage);
+                showSkeletonLoader();
+                hideSkeletonLoader();
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                booksMain.innerHTML = "<p>Sorry, we couldn't fetch any books at the moment. Please try again later.</p>";
+            });
+    }
 
     function displayPage(page) {
         const startIndex = (page - 1) * itemsPerPage;
@@ -67,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function addData(data) {
         booksMain.innerHTML = ""; 
 
-    
         data.forEach((bookData, index) => {
             let book = document.createElement("div");
             book.className = "book"; 
@@ -78,20 +78,17 @@ document.addEventListener('DOMContentLoaded', function () {
             let bookImage = bookData.image;
             let bookId = bookData.id;
 
-    
             if (bookAuthors.length > 2) {
                 bookAuthors = bookAuthors.slice(0, 2).join(', ') + '...';  
             } else {
                 bookAuthors = bookAuthors.join(', ');  
             }
 
- 
             const downloadURLPrefix = 'https://www.dbooks.org/api/book/';
             const downloadURL = downloadURLPrefix + bookId;
 
             let downbookUrl = '#';  
 
- 
             fetch(downloadURL)
                 .then(response => response.json())
                 .then(fetchedData => {
@@ -103,45 +100,40 @@ document.addEventListener('DOMContentLoaded', function () {
                     renderBook(book, '#', index); 
                 });
 
-       
             function renderBook(book, downbookUrl, index) {
                 book.innerHTML = `
                     <img src="${bookImage}" alt="${bookTitle}" class="book-img">
                     <div class="description">
-                     <p class="subtitle"><b>${bookTitle}</b>
-                        <p class="subtitle"><b>${bookSubtitle}</b>
+                        <p class="subtitle"><b>${bookTitle}</b></p>
+                        <p class="subtitle"><b>${bookSubtitle}</b></p>
                         <span class="author ellipsis"><b>author:</b> ${bookAuthors}</span>
-                        </p>
                         <span class="btns">
                             <button class="view-details-btn view-details" data-index="${index}">Details</button>  
                             <a href="${downbookUrl}" class="download-link btn-style">Download</a>
                         </span>
-                    </div>`;
+                    </div>
+                `;
 
                 booksMain.appendChild(book);
 
-             
                 setTimeout(() => {
                     book.style.animationDelay = `${index * 0.1}s`; 
                     book.style.opacity = 1; 
                 }, 100);
 
-          
                 const viewDetailsBtn = book.querySelector('.view-details-btn');
                 viewDetailsBtn.addEventListener('click', () => {
                     const index = viewDetailsBtn.getAttribute('data-index');
                     const bookData = data[index];
                     bookData.downloadUrl = downbookUrl; 
                     localStorage.setItem('selectedBook', JSON.stringify(bookData));
-                    location.href = 'html/book-details.html';
+                    location.href = '/html/book-details.html'; 
                 });
             }
         });
     }
 
-
     function buttonControl() {
-       
         prevButton.addEventListener("click", () => {
             if (currentPage > 1) {
                 currentPage--;
@@ -150,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-      
         nextButton.addEventListener("click", () => {
             if (currentPage < totalPages) {
                 currentPage++;
@@ -169,4 +160,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     buttonControl();
+
+    fetchBooks("https://www.dbooks.org/api/search/recent");
+
+
+    document.querySelectorAll('.category-item').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const category = this.dataset.category;
+            const categoryUrl = `https://www.dbooks.org/api/search/${category}`;
+            fetchBooks(categoryUrl);
+        });
+    });
+
+
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const searchQuery = searchInput.value.trim().replace(/\s+/g, '+');
+        const searchUrl = `https://www.dbooks.org/api/search/${searchQuery}`;
+        fetchBooks(searchUrl);
+    });
 });
